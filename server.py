@@ -12,18 +12,24 @@ def livecount():
 
     try:
         
-        res = requests.get(f'https://api.covid19api.com/live/country/{country}/status/deaths')
-        print(f"[RES] {res.json()[-1]}")
+        res = requests.get(f'https://api.covid19api.com/live/country/{country}/status/deaths').json()
+        print(f"[RES] {res[-1]}")
+        
+        active = res[-1]["Active"]
+        
+        message = f"They are {active} active cases in {country}" 
         response = {
+            "fulfillmentText": message,
             "fulfillmentMessages": [
                 {
-                "text": {
-                    "cases": res.json()[-1]
-                }
+                    "text": {
+                        "text": [ message ]
+                    }
                 }
             ]
-            }
-        return res.json()[-1]
+        }
+        
+        return response
     except Exception as e:
         print(f"[ERROR] {e}")
         abort(500, str(e))
