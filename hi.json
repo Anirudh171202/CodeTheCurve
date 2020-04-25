@@ -1,131 +1,138 @@
-[{
-    "Country": "India",
-    "CountryCode": "IN",
-    "Province": "",
-    "City": "",
-    "CityCode": "",
-    "Lat": "20.59",
-    "Lon": "78.96",
-    "Confirmed": 9240,
-    "Deaths": 331,
-    "Recovered": 1096,
-    "Active": 7813,
-    "Date": "2020-04-13T00:00:00Z"
-}, {
-    "Country": "India",
-    "CountryCode": "IN",
-    "Province": "",
-    "City": "",
-    "CityCode": "",
-    "Lat": "20.59",
-    "Lon": "78.96",
-    "Confirmed": 10453,
-    "Deaths": 358,
-    "Recovered": 1181,
-    "Active": 8914,
-    "Date": "2020-04-14T00:00:00Z"
-}, {
-    "Country": "India",
-    "CountryCode": "IN",
-    "Province": "",
-    "City": "",
-    "CityCode": "",
-    "Lat": "20.59",
-    "Lon": "78.96",
-    "Confirmed": 11487,
-    "Deaths": 393,
-    "Recovered": 1359,
-    "Active": 9735,
-    "Date": "2020-04-15T00:00:00Z"
-}, {
-    "Country": "India",
-    "CountryCode": "IN",
-    "Province": "",
-    "City": "",
-    "CityCode": "",
-    "Lat": "20.59",
-    "Lon": "78.96",
-    "Confirmed": 12456,
-    "Deaths": 423,
-    "Recovered": 1513,
-    "Active": 10520,
-    "Date": "2020-04-16T00:00:00Z"
-}, {
-    "Country": "India",
-    "CountryCode": "IN",
-    "Province": "",
-    "City": "",
-    "CityCode": "",
-    "Lat": "20.59",
-    "Lon": "78.96",
-    "Confirmed": 13430,
-    "Deaths": 448,
-    "Recovered": 1768,
-    "Active": 11214,
-    "Date": "2020-04-17T00:00:00Z"
-}, {
-    "Country": "India",
-    "CountryCode": "IN",
-    "Province": "",
-    "City": "",
-    "CityCode": "",
-    "Lat": "20.59",
-    "Lon": "78.96",
-    "Confirmed": 14352,
-    "Deaths": 486,
-    "Recovered": 2041,
-    "Active": 11825,
-    "Date": "2020-04-18T00:00:00Z"
-}, {
-    "Country": "India",
-    "CountryCode": "IN",
-    "Province": "",
-    "City": "",
-    "CityCode": "",
-    "Lat": "20.59",
-    "Lon": "78.96",
-    "Confirmed": 15722,
-    "Deaths": 521,
-    "Recovered": 2463,
-    "Active": 12738,
-    "Date": "2020-04-19T00:00:00Z"
-}, {
-    "Country": "India",
-    "CountryCode": "IN",
-    "Province": "",
-    "City": "",
-    "CityCode": "",
-    "Lat": "20.59",
-    "Lon": "78.96",
-    "Confirmed": 17615,
-    "Deaths": 559,
-    "Recovered": 2854,
-    "Active": 14202,
-    "Date": "2020-04-20T00:00:00Z"
-}, {
-    "Country": "India",
-    "CountryCode": "IN",
-    "Province": "",
-    "City": "",
-    "CityCode": "",
-    "Lat": "20.59",
-    "Lon": "78.96",
-    "Confirmed": 18539,
-    "Deaths": 592,
-    "Recovered": 3273,
-    "Active": 14674,
-    "Date": "2020-04-21T00:00:00Z"
-}, {
-    "Country": "India",
-    "CountryCode": "IN",
-    "Province": "",
-    "City": "",
-    "CityCode": "",
-    "Lat": "20.59",
-    "Lon": "78.96",
-    "Confirmed": 20080,
-    "Deaths": 645,
-    "Recovered": 3975,
-    "Active": 15460,
-    "Date": "2020-04-22T00:00:00Z"
-}]
+{
+    "responseId": "d74f4c21-0bac-410e-ac22-d7ef7db69014-eec93b43",
+    "queryResult": {
+        "queryText": "21",
+        "action": "Screener.Screener-custom.Screener-custom-custom",
+        "parameters": {
+            "age": {
+                "amount": 21.0,
+                "unit": "year"
+            }
+        },
+        "allRequiredParamsPresent": True,
+        "fulfillmentText": "Have you been in contact with someone diagnosed with COVID-19 either within 72 hours before their symptoms started, within 7 days after their symptoms began, or within 3 days after their symptoms ended?",
+        "fulfillmentMessages": [{
+            "text": {
+                "text": ["Have you been in contact with someone diagnosed with COVID-19 either within 72 hours before their symptoms started, within 7 days after their symptoms began, or within 3 days after their symptoms ended?"]
+            }
+        }],
+        "outputContexts": [{
+            "name": "projects/coronabot-jxdllv/agent/sessions/8a4185f8-be8b-c791-e95f-8064bf67447c/contexts/a2",
+            "lifespanCount": 10,
+            "parameters": {
+                "rating": "No",
+                "rating.orig":{
+                    "responseId": "d74f4c21-0bac-410e-ac22-d7ef7db69014-eec93b43",
+                    "queryResult": {
+                        "queryText": "21",
+                        "action": "Screener.Screener-custom.Screener-custom-custom",
+                        "parameters": {
+                            "age": {
+                                "amount": 21.0,
+                                "unit": "year"
+                            }
+                        },
+                        "allRequiredParamsPresent": True,
+                        "fulfillmentText": "Have you been in contact with someone diagnosed with COVID-19 either within 72 hours before their symptoms started, within 7 days after their symptoms began, or within 3 days after their symptoms ended?",
+                        "fulfillmentMessages": [{
+                            "text": {
+                                "text": ["Have you been in contact with someone diagnosed with COVID-19 either within 72 hours before their symptoms started, within 7 days after their symptoms began, or within 3 days after their symptoms ended?"]
+                            }
+                        }],
+                        "outputContexts": [{
+                            "name": "projecinal": "Nay",
+                "age": {
+                    "amount": 21.0,
+                    "unit": "year"
+                },
+                "age.original": "21"
+            }
+        }, {
+            "name": "projects/coronabot-jxdllv/agent/sessions/8a4185f8-be8b-c791-e95f-8064bf67447c/contexts/a1",
+            "lifespanCount": 10,
+            "parameters": {
+                "rating": "No",
+                "rating.original": "Nay",
+                "age": {
+                    "amount": 21.0,
+                    "unit": "year"
+                },
+                "age.original": "21"
+            }
+        }, {
+            "name": "projects/coronabot-jxdllv/agent/sessions/8a4185f8-be8b-c791-e95f-8064bf67447c/contexts/a3",
+            "lifespanCount": 10,
+            "parameters": {
+                "age": {
+                    "amount": 21.0,
+                    "unit": "year"
+                },
+                "age.original": "21",
+                "rating": "No",
+                "rating.original": "Nay"
+            }
+        }, {
+            "name": "projects/coronabot-jxdllv/agent/sessions/8a4185f8-be8b-c791-e95f-8064bf67447c/contexts/__system_counters__",
+            "parameters": {
+                "no-input": 0.0,
+                "no-match": 0.0,
+                "age": {
+                    "amount": 21.0,
+                    "unit": "year"
+                },
+                "age.original": "21"
+            }
+        }],
+        "intent": {
+            "name": "projects/coronabot-jxdllv/agent/intents/dab50f8e-b1d6-4a53-8be1-5f3c779d25b7",
+            "displayName": "Q3"
+        },
+        "intentDetectionConfidence": 1.0,
+        "languageCode": "en"
+    },
+    "originalDetectIntentRequest": {
+        "payload": {}
+    },
+    "session": "projects/coronabot-jxdllv/agent/sessions/8a4185f8-be8b-c791-e95f-8064bf67447c",
+    "alternativeQueryResults": [{
+        "queryText": "21",
+        "outputContexts": [{
+            "name": "projects/coronabot-jxdllv/agent/sessions/8a4185f8-be8b-c791-e95f-8064bf67447c/contexts/a1",
+            "lifespanCount": 8,
+            "parameters": {
+                "rating": "No",
+                "rating.original": "Nay",
+                "age": {
+                    "amount": 2.0,
+                    "unit": "year"
+                },
+                "age.original": "2"
+            }
+        }, {
+            "name": "projects/coronabot-jxdllv/agent/sessions/8a4185f8-be8b-c791-e95f-8064bf67447c/contexts/a2",
+            "lifespanCount": 4,
+            "parameters": {
+                "rating": "No",
+                "rating.original": "Nay",
+                "age": {
+                    "amount": 2.0,
+                    "unit": "year"
+                },
+                "age.original": "2"
+            }
+        }, {
+            "name": "projects/coronabot-jxdllv/agent/sessions/8a4185f8-be8b-c791-e95f-8064bf67447c/contexts/a3",
+            "lifespanCount": 6,
+            "parameters": {
+                "age": {
+                    "amount": 2.0,
+                    "unit": "year"
+                },
+                "age.original": "2",
+                "rating": "No",
+                "rating.original": "Nay"
+            }
+        }],
+        "languageCode": "en"
+    }]
+}
