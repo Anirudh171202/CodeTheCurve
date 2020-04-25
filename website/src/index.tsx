@@ -7,3 +7,5 @@ import "./styles/main.scss";
 
 render(<App />, document.getElementById("root"));
 
+const dfMessenger = document.querySelector("df-messenger");
+

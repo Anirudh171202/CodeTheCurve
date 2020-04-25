@@ -1,9 +1,14 @@
-from flask import abort, request, jsonify, Flask
-
-app = Flask(__name__) 
+from flask import abort, request, jsonify, Flask, render_template
 import requests
+import os
 
-@app.route("/livecount", methods = ["POST", "GET"])
+app = Flask(__name__, template_folder=os.path.abspath("./static"))
+
+@app.route("/")
+def frontend():
+    return render_template("index.html")
+
+@app.route("/chatbot", methods = ["POST", "GET"])
 def receive():
     req = request.get_json()
     print(f"[REQ], {req}")
@@ -12,9 +17,6 @@ def receive():
         country = req["queryResult"]["parameters"]["country"]  
         return livecount(country)
     # elif intentName[0] == "Q":
-
-
-        
 
 
 
@@ -29,18 +31,23 @@ def livecount(country):
         recovered = res["Recovered"]
         deaths = res["Deaths"]
         date = res["Date"][:10]
+        formattedCountry = res["Country"]
         
-        message = f'''As of {date},
- there are {active} active cases, 
- {confirmed} confirmed cases, 
- {recovered} recovered patients, 
- {deaths} deaths'''
+        message = [
+            f"In {formattedCountry}, there are:",
+            f" - {active} active cases,",
+            f" - {confirmed} confirmed cases,"
+            f" - {recovered} recovered patients,",
+            f" - {deaths} deaths.",
+            "",
+            f"This data is as of {data}"
+        ]
         response = {
             "fulfillmentText": message,
             "fulfillmentMessages": [
                 {      
                     "text": {
-                        "text": [ message ]
+                        "text": message
                     }
                 }
             ]
