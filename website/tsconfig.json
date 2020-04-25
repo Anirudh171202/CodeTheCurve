@@ -4,7 +4,7 @@
     "jsx": "react",
     "baseUrl": ".",
     "moduleResolution": "node",
-    "rootDir": "src",
+    "rootDir": ".",
     "paths": {
       "~*": ["./src/*"],
       "styles": ["./src/styles"]
@@ -13,4 +13,3 @@
   "include": ["global.d.ts", "declarations.d.ts"],
   "exclude": ["node_modules"]
 }
-

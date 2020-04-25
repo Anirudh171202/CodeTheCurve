@@ -10,9 +10,11 @@
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
     "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.1.2"
+    "react-router-dom": "^5.1.2",
+    "ya-translate": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

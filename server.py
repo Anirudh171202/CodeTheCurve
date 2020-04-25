@@ -1,6 +1,7 @@
 from flask import abort, request, jsonify, Flask, render_template
 import requests
 import os
+from json import dumps
 
 app = Flask(__name__, template_folder=os.path.abspath("./static"))
 
@@ -11,18 +12,18 @@ def frontend():
 @app.route("/chatbot", methods = ["POST", "GET"])
 def receive():
     req = request.get_json()
-    print(f"[REQ], {req}")
-    intentName= req["queryResult"]["intent"]
-    if intentName == "liveCount":
+    print(f"[REQ], {dumps(req, indent=2)}")
+    intentName= req["queryResult"]["intent"]["displayName"]
+    if intentName == "liveCases":
         country = req["queryResult"]["parameters"]["country"]  
         return livecount(country)
     # elif intentName[0] == "Q":
-
+    return {}
 
 
 def livecount(country):
     try:
-        
+        print(country)
         res = requests.get(f'https://api.covid19api.com/live/country/{country}/status/deaths').json()[-1]
         print(f"[RES] {res}")
         
@@ -40,10 +41,10 @@ def livecount(country):
             f" - {recovered} recovered patients,",
             f" - {deaths} deaths.",
             "",
-            f"This data is as of {data}"
+            f"This data is as of {date}"
         ]
         response = {
-            "fulfillmentText": message,
+            "fulfillmentText": "\n".join(message),
             "fulfillmentMessages": [
                 {      
                     "text": {
@@ -60,4 +61,4 @@ def livecount(country):
     
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.run(debug=True)
