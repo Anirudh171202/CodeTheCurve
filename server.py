@@ -1,8 +1,14 @@
 from flask import abort, request, jsonify, Flask, render_template
 import requests
-import os
+import os,sys
 from json import dumps
 from googletrans import Translator
+import dialogflow_v2 as dialogflow
+from uuid import uuid4
+from dotenv import load_dotenv
+
+session_id = str(uuid4)
+
 
 def translate(text, lang="en"):
     trans = Translator()
@@ -22,11 +28,11 @@ def dialogflow_request():
     req = request.get_json()
     print(f"[REQ], {dumps(req, indent=2)}")
     intentName= req["queryResult"]["intent"]["displayName"]
-    if intentName == "liveCases":
-        country = req["queryResult"]["parameters"]["country"]  
-        return livecount(country)
+    # if intentName == "liveCases":
+    country = req["queryResult"]["parameters"]["country"]  
+    return livecount(country)
     # elif intentName[0] == "Q":
-    return {}
+    # return {}
 
 @app.route("/chatbot", methods=["POST", "GET"])
 def chatbot():
@@ -35,13 +41,44 @@ def chatbot():
     res, src = translate(req["text"])
 
     # TODO Dialogflow stuff
-    dialogflowResponse = "TODO: Implement Dialogflow Bot Response."
+    dialogflowResponse = detect_intent_texts(res)
 
     text = translate(dialogflowResponse, src)[0]
     print(text)
     return {
         "text": text
     }
+
+def detect_intent_texts(text):
+    """Returns the result of detect intent with texts as inputsprint.
+
+    Using the same `session_id` between requests allows continuation
+    of the conversation."""
+    # os.system('export GOOGLE_APPLICATION__CREDENTIALS="`pwd`/google_auth.json"')
+    print(load_dotenv())
+    print("[OS ENVIRON]", os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"))
+    project_id = os.environ["PROJECT_ID"]
+    session_client = dialogflow.SessionsClient()
+    language_code = "en"
+    session = session_client.session_path(project_id, session_id)
+    print('Session path: {}\n'.format(session))
+
+    text_input = dialogflow.types.TextInput(
+        text=text, language_code=language_code)
+
+    query_input = dialogflow.types.QueryInput(text=text_input)
+
+    response = session_client.detect_intent(
+        session=session, query_input=query_input)
+
+    print('=' * 20)
+    print('Query text: {}'.format(response.query_result.query_text))
+    print('Detected intent: {} (confidence: {})\n'.format(
+        response.query_result.intent.display_name,
+        response.query_result.intent_detection_confidence))
+    print('Fulfillment text: {}\n'.format(
+        response.query_result.fulfillment_text))
+    return response.query_result.fulfillment_text
 
 def livecount(country):
     try:
