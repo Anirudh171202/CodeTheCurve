@@ -5,7 +5,7 @@ CoronaBot is a chatbot that helps fight the coronavirus infodemic by curbing fak
 
 Visit [our website](https://npsinrcisco.live) to interact with the bot.
 
-View [our submission video here]() on youtube.
+View [our submission video here](https://youtu.be/a-h3x9_Ecso) on youtube.
 
 Download [our pitch deck](https://send.firefox.com/download/6d1d5a177c691dcd/#a4Bluhg1x2RH3RvuGBZW7Q)
 
