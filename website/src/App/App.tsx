@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import yandex from "ya-translate";
 import SendButton from "./SendButton";
 import Messages from "./Messages";
-
-const translate = yandex("trnsl.1.1.20200328T211017Z.ab2eb594adaba721.7c008849ce33008b5aa263bd3053e3604d886c64");
 
 function App() {
   const [text, setText] = useState("");
@@ -16,21 +13,20 @@ function App() {
     if (text.trim().length === 0) return;
     setHistory((history) => [...history, { sender: "user", text }]);
     setText("");
+    console.log(JSON.stringify({ text }));
+    try {
+      const res = await fetch("/chatbot", {
+        method: "POST",
+        body: JSON.stringify({ text }),
+        headers: { "Content-Type": "application/json" },
+      });
 
-    const {
-      detected: { lang },
-      transArr,
-    } = await translate.translate(text.trim());
-    const translatedText = transArr[0];
+      const { text: botMessage } = await res.json();
 
-    // Dialogflow
-    let botMessage = "dialogflow_stuff";
-
-    if (lang !== "en") {
-      botMessage = await translate.translate(botMessage, lang);
+      setHistory((history) => [...history, { sender: "bot", text: botMessage }]);
+    } catch (err) {
+      console.error(err);
     }
-
-    setHistory((history) => [...history, { sender: "bot", text: botMessage }]);
   };
 
   const handleKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {

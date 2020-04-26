@@ -2,6 +2,14 @@ from flask import abort, request, jsonify, Flask, render_template
 import requests
 import os
 from json import dumps
+from googletrans import Translator
+
+def translate(text, lang="en"):
+    trans = Translator()
+    t = trans.translate(text, lang)
+    res = t.text
+    src = t.src
+    return res, src    
 
 app = Flask(__name__, template_folder=os.path.abspath("./static"))
 
@@ -9,8 +17,8 @@ app = Flask(__name__, template_folder=os.path.abspath("./static"))
 def frontend():
     return render_template("index.html")
 
-@app.route("/chatbot", methods = ["POST", "GET"])
-def receive():
+@app.route("/dialogflow-chatbot", methods=["POST", "GET"])
+def dialogflow_request():
     req = request.get_json()
     print(f"[REQ], {dumps(req, indent=2)}")
     intentName= req["queryResult"]["intent"]["displayName"]
@@ -20,6 +28,20 @@ def receive():
     # elif intentName[0] == "Q":
     return {}
 
+@app.route("/chatbot", methods=["POST", "GET"])
+def chatbot():
+    req = request.get_json()
+    print(req)
+    res, src = translate(req["text"])
+
+    # TODO Dialogflow stuff
+    dialogflowResponse = "TODO: Implement Dialogflow Bot Response."
+
+    text = translate(dialogflowResponse, src)[0]
+    print(text)
+    return {
+        "text": text
+    }
 
 def livecount(country):
     try:

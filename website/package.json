@@ -5,16 +5,13 @@
   "license": "MIT",
   "scripts": {
     "watch": "parcel ./src/index.html",
+    "prebuild": "rm -rf ../static",
     "build": "parcel build --out-dir=../static --public-url=/static ./src/index.html"
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
-    "axios": "^0.19.2",
-    "dotenv": "^8.2.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.1.2",
-    "ya-translate": "^1.0.0"
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -23,7 +20,6 @@
     "@babel/preset-react": "^7.9.4",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
-    "@types/react-router-dom": "^5.1.4",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.26.5",
     "typescript": "^3.8.3"
