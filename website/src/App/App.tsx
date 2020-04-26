@@ -4,10 +4,7 @@ import Messages from "./Messages";
 
 function App() {
   const [text, setText] = useState("");
-  const [history, setHistory] = useState<message[]>([
-    { sender: "user", text: "ani has alzheimers" },
-    { sender: "bot", text: "Yes that is fax" },
-  ]);
+  const [history, setHistory] = useState<message[]>([]);
 
   const sendMessage = async () => {
     if (text.trim().length === 0) return;
