@@ -3,7 +3,9 @@ By Team CoronaBot from India
 
 CoronaBot is a chatbot that helps fight the coronavirus infodemic by curbing fake news and conveying factually accurate information.
 
-Visit [our website](https://npsinrcisco.live) to interact with the bot. (PLEASE NOTE THE LINK FOR WORKING MODEL OF APP WE SUBMITTED THROUGH PORTAL NO LONGER WORKS, PLEASE USE THIS INSTEAD)
+Visit [our website](https://npsinrcisco.live) to interact with the bot.
+
+(PLEASE NOTE THE LINK FOR WORKING MODEL OF APP WE SUBMITTED THROUGH PORTAL NO LONGER WORKS, PLEASE USE THIS INSTEAD)
 
 View [our submission video here](https://youtu.be/a-h3x9_Ecso) on youtube.
 
